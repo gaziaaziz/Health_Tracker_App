@@ -12,10 +12,10 @@ It helps calculate BMI, log daily steps, water intake, and sleep hours — with 
 
 ## 📂 Files
 
-- `healthtrack.py` – Main script
+- `main.py` – Main script
 - `README.md` – Project info
 
 ## 🚀 How to Run
 
 ```bash
-python healthtrack.py
+python main.py
