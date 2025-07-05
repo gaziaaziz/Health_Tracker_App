@@ -1,3 +1,6 @@
+import csv
+import os
+
 print("Welcome to the HealthTrack App!")
 
 # Get and format name
@@ -116,6 +119,18 @@ def health_summary(steps, litres, hours):
     print(f"- Sleep: {hours} hrs")
 
 health_summary(steps, litres, hours)
+
+def save_log_to_csv(name, age, bmi, steps, litres, hours):
+    file_exists = os.path.isfile("health_log.csv")
+    with open("health_log.csv", mode= "a", newline="") as file:
+        writer = csv.writer(file)
+        if not file_exists or os.stat("health_log.csv").st_size == 0:
+            writer.writerow(["Name", "Age", "BMI", "Steps", "Water Intake (L)", "Sleep (Hrs)"])
+        writer.writerow([name, age, bmi, steps, litres, hours])
+
+save_log_to_csv(name, age, bmi, steps, litres, hours)
+print("Your Health Log has been saved!")
+
 
 # Final Encouragement
 if steps >= 5000 and litres >= 2 and hours >= 7:
